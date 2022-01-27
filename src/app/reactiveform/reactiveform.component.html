@@ -1,0 +1,43 @@
+<div class="container" style="margin:auto;">
+    <div class="row">
+        <div class="col-6">
+            <img src="../../assets/images.jfif" alt="">
+        </div>
+
+        <div class="col-6 right-sec">
+            <form [formGroup]="signupForm">
+                <div class="formGroup">
+                    <label for="fname">firstName: </label>
+                    <input type="text" placeholder="Enter your name" class="form-control" formControlName="frname"
+                        name="frname">
+                    <span class="error" *ngIf="signupForm.get('frname')?.invalid && signupForm.get('frname')?.touched">
+                        Firstname is required
+                    </span>
+                </div>
+                <div class="formGroup">
+                    <label for="name">Lastname: </label>
+                    <input type="text" placeholder="Enter your Lastname" class="form-control" formControlName="lname"
+                        name="lname">
+                    <span class="error" *ngIf="signupForm.get('lname')?.invalid && signupForm.get('lname')?.touched">
+                        Lastname is required and must be 4
+                    </span>
+                    <span class="success" *ngIf="signupForm.get('lname')?.valid">Success</span>
+
+                </div>
+                <div class="formGroup">
+                    <label for="num">Number: </label>
+                    <input type="text" placeholder="Enter your Number" class="form-control" formControlName="number"
+                        name="frname">
+                    <span class="error" *ngIf="signupForm.get('number')?.invalid && signupForm.get('number')?.touched">
+                        Number length must be 6
+                    </span>
+                    <span class="success" *ngIf="signupForm.get('number')?.valid">
+                        Thank You
+                    </span>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

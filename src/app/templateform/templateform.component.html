@@ -1,0 +1,64 @@
+<div class="container" style="margin: auto;">
+    <div class="row">
+        <div class="col-6">
+            <img src="../../assets/images.jfif" style="align-items: center;" alt="">
+        </div>
+        <div class="col-6 right-sec"><form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)" >
+            <div class="form-group">
+                <label for="tname">Firstname:</label>
+                <span class="text text-danger"  *ngIf="tname.untouched && tname.invalid">*</span>
+                <input type="text" required minlength="7" ngModel  #tname="ngModel" class="form-control" placeholder="Enter Firstname" required name="tname" >
+                <span class="text text-danger" *ngIf="tname.touched && tname.invalid"> Firstname Requried </span>
+                <span class="text text-danger" *ngIf="tname.errors?.['minlength']">must contain 7 letters</span>
+            </div>
+            <div>
+                <label for="lname">LastName</label>
+                <span class="text text-danger"  *ngIf="lname.untouched && lname.invalid">*</span>
+                <input type="text" ngModel required #lname="ngModel" placeholder="Last name" class="form-control"
+                    name="lname">
+                <span class="text text-danger" *ngIf="lname.touched && lname.invalid">
+                    This field should not be empty
+                </span>
+            </div>
+            <div>
+                <label for="fname">FullName</label>
+                <span class="text text-danger"  *ngIf="fname.untouched && fname.invalid">*</span>
+                <input type="text" ngModel required #fname="ngModel" placeholder="Full name" class="form-control"
+                    name="fname">
+                <span class="text text-danger" *ngIf="fname.touched && fname.invalid">
+                    This field must be filled
+                </span>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <span class="text text-danger" *ngIf="email.untouched && email.invalid">*</span>
+                <input type="text" ngModel required  maxlength="8" #email="ngModel"
+                    placeholder="@gmail.com" class="form-control" name="email">
+                <span class="text text-danger" *ngIf="email.errors?.['maxlength']">
+                    email must contain letters
+                </span>
+            </div>
+            <div>
+                <label for="pswd">Password</label>
+                <span class="text text-danger" *ngIf="pswd.untouched && pswd.invalid">*</span>
+                <input type="password" ngModel required minlength="7" pattern="[0-9]" #pswd="ngModel" placeholder="Password"
+                    class="form-control" name="pswd">
+                <span class="text text-danger" *ngIf=" pswd.errors?.['pattern']&& pswd.errors?.['minlength']">
+                    password must be in numbers </span>
+            </div>
+            <div>
+                <label for="address">Address</label>
+                <span class="text text-danger" *ngIf="address.untouched && address.invalid">*</span>
+                <input type="text" ngModel required #address="ngModel" placeholder="Enter your Address" class="form-control"
+                    name="address">
+                <span class="text text-danger" *ngIf="address.touched && address.invalid">
+                    Must be filled
+                </span>
+            </div>
+            <br>
+    
+            <button [disabled]="loginForm.invalid" class="btn btn-primary">Submit</button>
+        </form></div>
+    </div>
+    
+</div>
